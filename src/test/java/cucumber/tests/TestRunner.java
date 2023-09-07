@@ -10,7 +10,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 @CucumberOptions(
-        monochrome = true,
         tags = "@Regression",
         features = "src/test/java/cucumber/features",
         glue = "cucumber.steps",

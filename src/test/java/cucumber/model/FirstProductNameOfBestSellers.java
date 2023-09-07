@@ -11,4 +11,7 @@ public class FirstProductNameOfBestSellers {
         return productName;
     }
 
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
 }

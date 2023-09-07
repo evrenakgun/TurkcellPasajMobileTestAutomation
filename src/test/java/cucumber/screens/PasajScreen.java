@@ -1,10 +1,12 @@
 package cucumber.screens;
 
 import cucumber.model.FirstProductNameOfBestSellers;
-import cucumber.model.FirstProductPriceOfBestSellers;
+import cucumber.model.WordInSearchTextBox;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.openqa.selenium.By;
+
+
 
 public class PasajScreen extends BaseScreen {
     public PasajScreen(AndroidDriver<MobileElement> driver) {
@@ -12,29 +14,22 @@ public class PasajScreen extends BaseScreen {
     }
 
     private FirstProductNameOfBestSellers firstProductNameOfBestSellers;
-    private FirstProductPriceOfBestSellers firstProductPriceOfBestSellers;
 
     // ***** Elements *****
-    @AndroidFindBy(id = "00000000-0000-0037-ffff-ffff00000095")
-    private MobileElement pasajTextButton;
-    @AndroidFindBy(id = "00000000-0000-002f-ffff-ffff00000429")
-    private MobileElement nameOfBestSellersFirstProduct;
-    @AndroidFindBy(id = "00000000-0000-002f-ffff-ffff00000430")
-    private MobileElement priceOfBestSellersFirstProduct;
+    private final By pasajTextButton = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.View[2]");
+    private final By nameOfBestSellersFirstProduct = By.xpath("//android.widget.TextView[@content-desc=\"ÇOK SATANLAR\"]/parent::android.view.ViewGroup//androidx.recyclerview.widget.RecyclerView[2]//androidx.cardview.widget.CardView[1]//android.view.ViewGroup[1]//android.widget.TextView[@resource-id=\"com.ttech.android.onlineislem:id/textViewPrductTitle\"]"); // Örnek: "Lenovo Lecoo EW302 Kablosuz Kulaklık"
+    private final By searchTextBox = By.id("com.ttech.android.onlineislem:id/linearLayoutSearch");
 
 
     // ***** Methods *****
     public void verifyPasajPageOpen() {
         waitUntilVisibilityOfElement(pasajTextButton);
     }
-    public void scrollDownUntilVisibleFirstProductPrice(){
-        scrollDownUntilElementVisible(priceOfBestSellersFirstProduct);
+    public void scrollDownUntilVisibleFirstProductName() {
+        scrollDownUntilElementVisible(nameOfBestSellersFirstProduct);
     }
     public String getNameOfBestSellersFirstProduct() {
         return getText(nameOfBestSellersFirstProduct);
-    }
-    public String getPriceOfBestSellersFirstProduct() {
-        return getText(priceOfBestSellersFirstProduct);
     }
 
     public void getProductNameInMemory() {
@@ -42,12 +37,16 @@ public class PasajScreen extends BaseScreen {
         firstProductNameOfBestSellers = new FirstProductNameOfBestSellers(productNameInMemory);
     }
 
-    public void getProductPriceInMemory() {
-        String productPriceInMemory = getPriceOfBestSellersFirstProduct();
-        firstProductPriceOfBestSellers = new FirstProductPriceOfBestSellers(productPriceInMemory);
+    public FirstProductNameOfBestSellers getFirstProductNameOfBestSellers() {
+        return firstProductNameOfBestSellers;
     }
 
     public void clickFirstProductOfBestSellers() {
         click(nameOfBestSellersFirstProduct);
     }
+
+    public void clickSearchTextBox() {
+        clickWithWait(searchTextBox);
+    }
+
 }

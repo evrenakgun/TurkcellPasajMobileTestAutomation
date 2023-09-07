@@ -16,9 +16,10 @@ public class BaseTest {
 
     @BeforeMethod
     @Parameters({"udid", "platformVersion"})
-    public void setUp(String udid, String platformVersion) throws MalformedURLException {
+    public void setUp(String udid, String platformVersion) throws MalformedURLException, InterruptedException {
         DesiredCapabilities capabilities = desiredCapabilitiesUtils.getDesiredCapabilities(udid, platformVersion);
         ThreadLocalDriver.setTLDriver(new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities));
+        Thread.sleep(3000);
     }
 
     @AfterMethod
