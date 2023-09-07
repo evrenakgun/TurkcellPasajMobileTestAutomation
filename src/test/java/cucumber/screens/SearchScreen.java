@@ -1,6 +1,5 @@
 package cucumber.screens;
 
-import cucumber.model.WordInSearchTextBox;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
@@ -13,8 +12,6 @@ public class SearchScreen extends BaseScreen {
     public SearchScreen(AndroidDriver<MobileElement> driver) {
         super(driver);
     }
-
-    private WordInSearchTextBox wordInSearchTextBox;
 
     // ***** Elements *****
     private final By searchBox = By.id("com.ttech.android.onlineislem:id/editTextSearchBox");

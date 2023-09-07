@@ -1,12 +1,9 @@
 package cucumber.screens;
 
 import cucumber.model.FirstProductNameOfBestSellers;
-import cucumber.model.WordInSearchTextBox;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
-
-
 
 public class PasajScreen extends BaseScreen {
     public PasajScreen(AndroidDriver<MobileElement> driver) {

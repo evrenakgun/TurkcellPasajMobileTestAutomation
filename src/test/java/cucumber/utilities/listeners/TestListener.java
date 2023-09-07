@@ -1,12 +1,10 @@
 package cucumber.utilities.listeners;
 
 import com.aventstack.extentreports.Status;
-import cucumber.tests.BaseTest;
 import cucumber.utilities.ThreadLocalDriver;
 import cucumber.utilities.extentreports.ExtentManager;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
