@@ -124,7 +124,7 @@ public class BaseScreen {
                 }
 
             } catch (NoSuchElementException e) {
-                scrollDownUntilElementVisible(element);
+                scrollUpUntilElementVisible(element);
             }
             finally {
                 driver.findElement(element).isDisplayed();
